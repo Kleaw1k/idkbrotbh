@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ thống quản lý ngân hàng</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #004080;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+        nav a:hover {
+            background-color: #575757;
+        }
+        main {
+            padding: 20px;
+        }
+        .btn {
+            padding: 10px 20px;
+            color: white;
+            background-color: #004080;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #002b54;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #004080;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Hệ thống quản lý ngân hàng</h1>
+    </header>
+    <nav>
+        <a href="#" onclick="showSection('branches')">Quản lý chi nhánh</a>
+        <a href="#" onclick="showSection('employees')">Quản lý nhân viên</a>
+        <a href="#" onclick="showSection('authentication')">Dịch vụ xác thực</a>
+        <a href="#" onclick="showSection('approval')">Bộ phận xác định</a>
+    </nav>
+    <main>
+        <!-- Quản lý chi nhánh -->
+        <section id="branches" style="display: none;">
+            <h2>Quản lý chi nhánh</h2>
+            <button class="btn" onclick="addBranch()">Thêm chi nhánh</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mã chi nhánh</th>
+                        <th>Tên chi nhánh</th>
+                        <th>Địa chỉ</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody id="branchTable">
+                    <!-- Dữ liệu sẽ được thêm động ở đây -->
+                </tbody>
+            </table>
+        </section>
+        <!-- Quản lý nhân viên -->
+        <section id="employees" style="display: none;">
+            <h2>Quản lý nhân viên</h2>
+            <p>Danh sách nhân viên sẽ hiển thị ở đây.</p>
+        </section>
+        <!-- Dịch vụ xác thực -->
+        <section id="authentication" style="display: none;">
+            <h2>Dịch vụ xác thực</h2>
+            <p>Trang xác thực khách hàng.</p>
+        </section>
+        <!-- Bộ phận xác định -->
+        <section id="approval" style="display: none;">
+            <h2>Bộ phận xác định</h2>
+            <p>Danh sách phê duyệt và trạng thái.</p>
+        </section>
+    </main>
+    <script>
+        // Hiển thị phần nội dung tương ứng
+        function showSection(sectionId) {
+            document.querySelectorAll('main section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        // Quản lý chi nhánh (ví dụ cơ bản)
+        function addBranch() {
+            const table = document.getElementById('branchTable');
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td>001</td>
+                <td>Chi nhánh Hà Nội</td>
+                <td>123 Đường ABC</td>
+                <td><button class="btn">Xóa</button></td>
+            `;
+            table.appendChild(newRow);
+        }
+
+        // Mặc định hiển thị trang quản lý chi nhánh
+        showSection('branches');
+    </script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biến động số dư</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 600px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .balance {
+      margin: 20px 0;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .transactions {
+      margin-top: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table th, table td {
+      text-align: left;
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+
+    table th {
+      background-color: #f9f9f9;
+    }
+
+    table tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    table tr td:last-child {
+      text-align: right;
+    }
+
+    .amount.negative {
+      color: red;
+    }
+
+    .amount.positive {
+      color: green;
+    }
+
+    .back-button {
+      display: block;
+      margin: 20px auto 0;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      text-align: center;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .back-button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Biến động số dư tài khoản</h1>
+    <div class="balance">
+      <p>Số dư hiện tại: $18,230.00</p>
+    </div>
+    <div class="transactions">
+      <h2>Lịch sử biến động</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Thời gian</th>
+            <th>Nội dung chuyển khoản</th>
+            <th>Số tiền</th>
+          </tr>
+        </thead>
+        <tbody id="transaction-list">
+          <!-- Transactions will be injected here -->
+        </tbody>
+      </table>
+    </div>
+    <a href="C:\Users\mktjs\Desktop\Hệ thống quản lý chi nhánh ngân hàng\Dashbroad\dist\pages\index3.html" class="back-button" onclick="goBack()">Quay lại</a>
+  </div>
+
+  <script>
+    // Sample transactions
+    const transactions = [
+      { date: "2024-11-20", description: "1", amount: -75.5 },
+      { date: "2024-11-19", description: "1", amount: -15.99 },
+      { date: "2024-11-18", description: "nice , free rock", amount: -120.0 },
+      { date: "2024-11-17", description: "back like i never left", amount: 1500.0 },
+      { date: "2024-11-16", description: "let the hunts begin", amount: -45.3 },
+    ];
+
+    // Initial balance
+    let balance = 5000;
+
+    // Update transactions on UI
+    const transactionList = document.getElementById("transaction-list");
+    const balanceDisplay = document.getElementById("balance");
+
+    function updateUI() {
+      transactionList.innerHTML = "";
+
+      transactions.forEach((transaction) => {
+        const tr = document.createElement("tr");
+
+        // Add date
+        const tdDate = document.createElement("td");
+        tdDate.textContent = transaction.date;
+
+        // Add description
+        const tdDescription = document.createElement("td");
+        tdDescription.textContent = transaction.description;
+
+        // Add amount
+        const tdAmount = document.createElement("td");
+        tdAmount.textContent = `$${transaction.amount.toFixed(2)}`;
+        tdAmount.classList.add("amount", transaction.amount < 0 ? "negative" : "positive");
+
+        tr.appendChild(tdDate);
+        tr.appendChild(tdDescription);
+        tr.appendChild(tdAmount);
+
+        transactionList.appendChild(tr);
+
+        // Update balance
+        balance += transaction.amount;
+      });
+
+      balanceDisplay.textContent = `$${balance.toFixed(2)}`;
+    }
+
+    function goBack() {
+      // Redirect to the previous page
+      window.history.back();
+    }
+
+    // Initial render
+    updateUI();
+  </script>
+</body>
+</html>

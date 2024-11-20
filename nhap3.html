@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập tài khoản quản trị</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://media.istockphoto.com/id/1349030917/photo/business-and-finance-looking-up-at-high-rise-office-buildings-in-the-financial-district-of-a.jpg?s=612x612&w=0&k=20&c=NSnN0va-f1OBG_GA7bTVmUIoBwNDKUXtHD8_PzeTNiA=') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        header {
+            text-align: left;
+        }
+
+        .logo {
+            width: 100px;
+        }
+
+        .login-form {
+            margin-top: 50px;
+        }
+
+        .login-form h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .login-form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .login-form button:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        footer .links {
+            margin-bottom: 10px;
+        }
+
+        footer .links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 14px;
+        }
+
+        footer .links a:hover {
+            text-decoration: underline;
+        }
+
+        footer p {
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+        .note {
+            font-size: 12px;
+            color: #ccc;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <img src="https://e7.pngegg.com/pngimages/953/468/png-clipart-dogecoin-cryptocurrency-logo-internet-meme-bitcoin-mammal-cat-like-mammal.png" alt="Logo Ngân Hàng" class="logo">
+            <h6>Xin chào quản trị viên</h6>
+        </header>
+
+        <div class="login-form">
+            <h2>Đăng nhập tài khoản quản trị</h2>
+            <form action="#" method="POST">
+                <label for="admin-username">Tên đăng nhập:</label>
+                <input type="text" id="admin-username" name="admin-username" required>
+                <small class="note"></small>
+
+                <label for="admin-password">Mật khẩu:</label>
+                <input type="password" id="admin-password" name="admin-password" required>
+                <small class="note"></small>
+
+                <button type="submit">Đăng nhập</button>
+            </form>
+        </div>
+
+        <footer>
+            <div class="links">
+                <a href="#">Liên hệ</a>
+                <a href="#">Câu hỏi thường gặp</a>
+                <a href="#">Hướng dẫn sử dụng dịch vụ</a>
+            </div>
+            <p>&copy; 2024 Ngân hàng và phát triển</p>
+        </footer>
+    </div>
+
+</body>
+</html>

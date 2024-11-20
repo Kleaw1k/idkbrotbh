@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGÂN HÀNG CHỈ YÊU MÌNH EM</title>
+    <style>
+        /* Reset cơ bản */
+        body, h1, h2, p, ul, li, a {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #f4f6f8;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Đảm bảo chiều cao tối thiểu của body là toàn màn hình */
+        }
+        /* Thanh điều hướng */
+        .navbar {
+            background-color: #1a73e8;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar h1 {
+            font-size: 1.5rem;
+        }
+        .navbar ul {
+            display: flex;
+        }
+        .navbar ul li {
+            margin: 0 1rem;
+        }
+        .navbar ul li a {
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        .navbar ul li a:hover {
+            text-decoration: underline;
+        }
+        /* Nội dung chính */
+        .main-content {
+            padding: 2rem;
+            flex: 1; /* Tự động giãn để chiếm phần còn lại */
+        }
+        .main-content h2 {
+            color: #1a73e8;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        .card {
+            background-color: white;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .card h3 {
+            color: #555;
+        }
+        /* Style cho button */
+        .card a {
+            display: inline-block;
+            background-color: #1a73e8;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            text-align: center;
+            width: 8%;
+        }
+        .card a:hover {
+            background-color: #0056b3;
+            text-decoration: none;
+        }
+        /* Thông tin chứng khoán */
+        .stock {
+            background-color: white;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .stock h3 {
+            font-size: 1.5rem;
+            color: #1a73e8;
+        }
+        .stock p {
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+        /* Hình ảnh cuộn */
+        .image-slider {
+            display: flex;
+            overflow: hidden;
+            margin-top: 2rem;
+        }
+        .image-slider img {
+            width: 100%;
+            height: auto;
+            margin-right: 20px; /* Cách nhau 20px */
+            border-radius: 8px;
+        }
+        .image-slider-wrapper {
+            display: flex;
+            animation: slide 30s linear infinite;
+        }
+        @keyframes slide {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Thanh điều hướng -->
+<div class="navbar">
+    <h1>Ngân hàng CHỈ YÊU MÌNH EM</h1>
+    <ul>
+        <li><a href="#">Trang Chủ</a></li>
+        <li><a href="#">Câu hỏi thường gặp</a></li>
+        <li><a href="#">Về chúng tôi</a></li>
+        <li><a href="#">Hỗ Trợ</a></li>
+    </ul>
+</div>
+
+<!-- Nội dung chính -->
+<div class="main-content">
+    <h2>Chào mừng bạn đến với Ngân Hàng CYME</h2>
+
+    <div class="card">
+        <h3>Đã có tài khoản?</h3>
+        <p>Đăng nhập ngay</p>
+        <a href="nhap.html">Đăng nhập</a> <!-- Thay button bằng link -->
+    </div>
+
+    <div class="card">
+        <h3>Chưa có tài khoản ?</h3>
+        <p>Hãy chắc rằng bạn đã đủ 16 tuổi và có CMT / CCCD để thực hiện</p>
+        <a href="nhap2.html">Tạo tài khoản</a> <!-- Thay button bằng link -->
+    </div>
+
+    <div class="card">
+        <h3>Tạo phiếu hỗ trợ</h3>
+        <p></p>
+        <a href="#">bấm vào</a> <!-- Thay button bằng link -->
+    </div>
+
+    <!-- Thông tin chứng khoán -->
+    <div class="stock">
+        <h3>Thị trường</h3>
+        <p id="stock-info">Đang tải thông tin chứng khoán...</p>
+    </div>
+
+    <!-- Cuộn hình ảnh -->
+    <div class="image-slider">
+        <div class="image-slider-wrapper">
+            <img src="https://www.creativefabrica.com/wp-content/uploads/2022/03/25/Bank-outline-icon-Graphics-27831472-1-1-580x386.jpg" alt="Image 1">
+            <img src="https://www.creativefabrica.com/wp-content/uploads/2022/03/25/Bank-outline-icon-Graphics-27831472-1-1-580x386.jpg" alt="Image 2">
+            <img src="https://www.creativefabrica.com/wp-content/uploads/2022/03/25/Bank-outline-icon-Graphics-27831472-1-1-580x386.jpg" alt="Image 3">
+            <img src="https://www.creativefabrica.com/wp-content/uploads/2022/03/25/Bank-outline-icon-Graphics-27831472-1-1-580x386.jpg" alt="Image 4">
+            <img src="https://www.creativefabrica.com/wp-content/uploads/2022/03/25/Bank-outline-icon-Graphics-27831472-1-1-580x386.jpg" alt="Image 5">
+            <img src="https://www.creativefabrica.com/wp-content/uploads/2022/03/25/Bank-outline-icon-Graphics-27831472-1-1-580x386.jpg" alt="Image 6">
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <p>© 2024 Hệ Thống Quản Lý Chi Nhánh Ngân Hàng. Kleawik's Company.</p>
+</div>
+
+<script>
+// Thay YOUR_API_KEY bằng API Key thực của bạn từ Alpha Vantage
+const apiKey = 'VA6DARFI6AGZ87UF';
+const symbol = 'AAPL'; // Mã cổ phiếu của Apple
+
+// Hàm lấy thông tin chứng khoán
+function getStockData() {
+    const url = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=5min&apikey=${apiKey}`;
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            if (data['Time Series (5min)']) {
+                const latestTime = Object.keys(data['Time Series (5min)'])[0];
+                const latestData = data['Time Series (5min)'][latestTime];
+                const price = latestData['4. close'];
+                const change = parseFloat(price) - parseFloat(latestData['1. open']);
+                const changePercent = (change / parseFloat(latestData['1. open']) * 100).toFixed(2);
+                document.getElementById('stock-info').innerHTML = `Giá cổ phiếu Apple: $${price}, Thay đổi: ${change.toFixed(2)} USD (${changePercent}%)`;
+            } else {
+                document.getElementById('stock-info').innerHTML = 'Không thể lấy thông tin chứng khoán.';
+            }
+        })
+        .catch(error => {
+            console.error('Lỗi:', error);
+            document.getElementById('stock-info').innerHTML = 'Đã có lỗi xảy ra khi tải dữ liệu chứng khoán.';
+        });
+}
+
+// Gọi hàm lấy thông tin chứng khoán khi tải trang
+getStockData();
+</script>
+
+</body>
+</html>

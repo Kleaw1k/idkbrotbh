@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng Ký Khoản Vay</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 500px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .form-group input[type="file"] {
+      padding: 3px;
+    }
+
+    .btn-submit {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .btn-submit:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Đăng Ký Khoản Vay</h1>
+    <h5>Ngân hàng CYME xin chào quý khách , quý khách vui lòng điền đầy đủ thông tin trước khi thực hiện cho vay , xin cảm ơn.</h5>
+    <form id="loanForm">
+      <div class="form-group">
+        <label for="loanAmount">Chọn khoản vay:</label>
+        <select id="loanAmount" name="loanAmount" required>
+          <option value="">-- Chọn số tiền --</option>
+          <option value="5">5 triệu</option>
+          <option value="10">10 triệu</option>
+          <option value="15">15 triệu</option>
+          <option value="20">20 triệu</option>
+          <option value="25">25 triệu</option>
+          <option value="30">30 triệu</option>
+          <option value="40">40 triệu</option>
+          <option value="50">50 triệu</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="salaryProof">Cung cấp bảng lương:</label>
+        <input type="file" id="salaryProof" name="salaryProof" accept="image/*,application/pdf" required>
+      </div>
+      <div class="form-group">
+        <label for="emergencyContact1">Số điện thoại người thân 1:</label>
+        <input type="tel" id="emergencyContact1" name="emergencyContact1" placeholder="Số điện thoại 1" required>
+      </div>
+      <div class="form-group">
+        <label for="emergencyContact2">Số điện thoại người thân 2:</label>
+        <input type="tel" id="emergencyContact2" name="emergencyContact2" placeholder="Số điện thoại 2" required>
+      </div>
+      <button type="submit" class="btn-submit">Đăng Ký</button>
+    </form>
+  </div>
+
+  <script>
+    const loanForm = document.getElementById("loanForm");
+
+    loanForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      // Lấy dữ liệu từ form
+      const loanAmount = document.getElementById("loanAmount").value;
+      const salaryProof = document.getElementById("salaryProof").files[0];
+      const emergencyContact1 = document.getElementById("emergencyContact1").value;
+      const emergencyContact2 = document.getElementById("emergencyContact2").value;
+
+      // Hiển thị thông báo tạm thời
+      alert(`Bạn đã đăng ký vay ${loanAmount} triệu thành công!Xin vui lòng chờ cho đến khi yêu cầu vay tiền của bạn được duyệt!`);
+      
+      // Chuyển hướng về trang ban đầu
+      window.location.href = "C:/Users/mktjs/Desktop/Hệ thống quản lý chi nhánh ngân hàng/Dashbroad/dist/pages/index3.html"; // Thay # bằng URL trang ban đầu
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đang xác thực.</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background: url('https://wallpapers.com/images/hd/pure-black-background-py9pa0f1mlsscm9s.jpg') no-repeat center center fixed; /* Thêm ảnh nền tại đây */
+            background-size: cover; /* Đảm bảo ảnh nền phủ hết màn hình */
+            color: #fff;
+            overflow: hidden;
+            flex-direction: column;
+        }
+        .image-container img {
+            width: 200px;
+            opacity: 0;
+            animation: fadeIn 3s forwards;
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        .loading-bar {
+            width: 80%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        .loading-bar-inner {
+            width: 0%;
+            height: 100%;
+            background: #61dafb;
+            animation: loading 10s linear forwards;
+        }
+        @keyframes loading {
+            0% {
+                width: 0%;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+        .report {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .report a {
+            color: #61dafb;
+            text-decoration: none;
+        }
+        .report a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        // Chuyển hướng sau 3 giây
+        setTimeout(() => {
+            window.location.href = "C:/Users/mktjs/Desktop/Hệ thống quản lý chi nhánh ngân hàng/login/login/dist/index.html"; // Thay bằng URL mong muốn
+        }, 10000);
+    </script>
+</head>
+<body>
+    <div class="image-container">
+        <!-- Thay ảnh bên dưới bằng ảnh của bạn -->
+        <img src="https://i.pinimg.com/originals/ae/1b/16/ae1b16df146614b08eca447625394346.gif" alt="Loading Image">
+    </div>
+    <div class="loading-bar">
+        <div class="loading-bar-inner"></div>
+    </div>
+    <div class="report">
+        Không vào được website? <a href="https://www.facebook.com/kleawik/">Báo cáo tại đây</a>
+    </div>
+</body>
+</html>

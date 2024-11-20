@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Câu Hỏi Thường Gặp - Giao Diện Ngân Hàng</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    .faq-container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .faq-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .faq-header h1 {
+      font-size: 24px;
+      color: #333;
+    }
+
+    .faq-item {
+      margin-bottom: 15px;
+    }
+
+    .faq-question {
+      font-weight: bold;
+      cursor: pointer;
+      color: #0056b3;
+      position: relative;
+    }
+
+    .faq-question::after {
+      content: "▼";
+      position: absolute;
+      right: 0;
+      font-size: 12px;
+      transition: transform 0.3s;
+    }
+
+    .faq-question.active::after {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      display: none;
+      margin-top: 5px;
+      padding-left: 10px;
+      border-left: 3px solid #0056b3;
+      color: #555;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="faq-container">
+    <div class="faq-header">
+      <h1>Câu Hỏi Thường Gặp</h1>
+      <p>Giải đáp các thắc mắc thường gặp trong quá trình sử dụng giao diện ngân hàng</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">1. Làm thế nào để kiểm tra số dư tài khoản?</div>
+      <div class="faq-answer">
+        Bạn có thể kiểm tra số dư tài khoản trực tiếp trên giao diện chính sau khi đăng nhập, hoặc vào mục "Tài khoản" và chọn "Xem chi tiết số dư".
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">2. Tôi quên mật khẩu đăng nhập, phải làm sao?</div>
+      <div class="faq-answer">
+        Hãy nhấp vào "Quên mật khẩu" trên màn hình đăng nhập, sau đó làm theo hướng dẫn để đặt lại mật khẩu qua email hoặc số điện thoại đã đăng ký.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">3. Phí chuyển khoản là bao nhiêu?</div>
+      <div class="faq-answer">
+        Phí chuyển khoản tùy thuộc vào ngân hàng và gói dịch vụ của bạn. Hầu hết các giao dịch nội bộ là miễn phí, còn giao dịch liên ngân hàng có thể mất từ 5,000 - 15,000 VNĐ.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">4. Tại sao tôi không thể đăng nhập được?</div>
+      <div class="faq-answer">
+        Kiểm tra kết nối Internet của bạn và đảm bảo thông tin đăng nhập là chính xác. Nếu vẫn không được, hãy thử đặt lại mật khẩu hoặc liên hệ tổng đài hỗ trợ.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">5. Giao dịch của tôi không thực hiện được, phải làm gì?</div>
+      <div class="faq-answer">
+        Vui lòng kiểm tra lại thông tin người nhận, số tiền, và đảm bảo số dư trong tài khoản đủ để thực hiện giao dịch. Nếu vẫn gặp lỗi, hãy liên hệ bộ phận hỗ trợ.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.faq-question').forEach(item => {
+      item.addEventListener('click', () => {
+        const answer = item.nextElementSibling;
+        item.classList.toggle('active');
+        if (answer.style.display === 'block') {
+          answer.style.display = 'none';
+        } else {
+          answer.style.display = 'block';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

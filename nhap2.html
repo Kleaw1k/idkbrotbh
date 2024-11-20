@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký tài khoản Ngân hàng</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://media.istockphoto.com/id/1349030917/photo/business-and-finance-looking-up-at-high-rise-office-buildings-in-the-financial-district-of-a.jpg?s=612x612&w=0&k=20&c=NSnN0va-f1OBG_GA7bTVmUIoBwNDKUXtHD8_PzeTNiA=') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        header {
+            text-align: left;
+        }
+
+        .logo {
+            width: 100px;
+        }
+
+        .signup-form {
+            margin-top: 50px;
+        }
+
+        .signup-form h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .signup-form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .signup-form input, .signup-form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .signup-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .signup-form button:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        footer .links {
+            margin-bottom: 10px;
+        }
+
+        footer .links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 14px;
+        }
+
+        footer .links a:hover {
+            text-decoration: underline;
+        }
+
+        footer p {
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+        .login-link {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .login-link a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        .note {
+            font-size: 12px;
+            color: #ccc;
+            margin-top: 5px;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <img src="https://e7.pngegg.com/pngimages/953/468/png-clipart-dogecoin-cryptocurrency-logo-internet-meme-bitcoin-mammal-cat-like-mammal.png" alt="Logo Ngân Hàng" class="logo">
+            <h6>Xin chào quý khách</h6>
+        </header>
+
+        <div class="signup-form">
+            <h2>Đăng ký tài khoản Ngân hàng</h2>
+            <form id="signup-form" action="#" method="POST">
+                <label for="username">Tên đăng nhập:</label>
+                <input type="text" id="username" name="username" required>
+                <small class="note">Tên đăng nhập phải viết liền, không có ký tự đặc biệt.</small>
+                <div id="username-error" class="error-message"></div>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <small class="note">Vui lòng nhập email hợp lệ.</small>
+                <div id="email-error" class="error-message"></div>
+
+                <label for="password">Mật khẩu:</label>
+                <input type="password" id="password" name="password" required>
+                <small class="note">Mật khẩu phải có ít nhất 1 ký tự viết hoa và 1 chữ số.</small>
+                <div id="password-error" class="error-message"></div>
+
+                <label for="confirm-password">Xác nhận mật khẩu:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+                <div id="confirm-password-error" class="error-message"></div>
+
+                <label for="cmt">Số CMT / CCCD:</label>
+                <input type="text" id="cmt" name="cmt" required>
+                <small class="note">Số CMT / CCCD phải có ít nhất 10 chữ số.</small>
+                <div id="cmt-error" class="error-message"></div>
+
+                <label for="account-type">Loại tài khoản:</label>
+                <select id="account-type" name="account-type" required>
+                    <option value="personal">Cá nhân</option>
+                    <option value="business">Doanh nghiệp</option>
+                </select>
+
+                <button type="submit">Đăng ký</button>
+            </form>
+
+            <p class="login-link">Đã có tài khoản? <a href="nhap.html">Đăng nhập</a></p>
+        </div>
+
+        <footer>
+            <div class="links">
+                <a href="#">Liên hệ</a>
+                <a href="#">Câu hỏi thường gặp</a>
+                <a href="#">Hướng dẫn sử dụng dịch vụ</a>
+            </div>
+            <p>&copy; 2024 Ngân hàng và phát triển</p>
+        </footer>
+    </div>
+
+    <script>
+        // Hàm kiểm tra thông tin đăng ký
+        function validateForm(event) {
+            event.preventDefault(); // Ngừng gửi form
+    
+            let isValid = true;
+    
+            // Lấy giá trị của các trường
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const cmt = document.getElementById('cmt').value;
+    
+            // Lời nhắc thông báo lỗi
+            const usernameError = document.getElementById('username-error');
+            const emailError = document.getElementById('email-error');
+            const passwordError = document.getElementById('password-error');
+            const confirmPasswordError = document.getElementById('confirm-password-error');
+            const cmtError = document.getElementById('cmt-error');
+    
+            // Kiểm tra tên đăng nhập
+            if (!username.match(/^[A-Za-z0-9]+$/)) {
+                usernameError.textContent = "Tên đăng nhập phải viết liền, không có ký tự đặc biệt.";
+                isValid = false;
+            } else {
+                usernameError.textContent = "";
+            }
+    
+            // Kiểm tra email
+            if (!email.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/)) {
+                emailError.textContent = "Email phải hợp lệ.";
+                isValid = false;
+            } else {
+                emailError.textContent = "";
+            }
+    
+            // Kiểm tra mật khẩu
+            if (!password.match(/^(?=.*[A-Z])(?=.*\d)/)) {
+                passwordError.textContent = "Mật khẩu phải có ít nhất 1 ký tự viết hoa và 1 chữ số.";
+                isValid = false;
+            } else {
+                passwordError.textContent = "";
+            }
+    
+            // Kiểm tra xác nhận mật khẩu
+            if (password !== confirmPassword) {
+                confirmPasswordError.textContent = "Mật khẩu xác nhận không khớp.";
+                isValid = false;
+            } else {
+                confirmPasswordError.textContent = "";
+            }
+    
+            // Kiểm tra số CMT / CCCD
+            if (cmt.length < 10) {
+                cmtError.textContent = "Số CMT / CCCD phải có ít nhất 10 chữ số.";
+                isValid = false;
+            } else {
+                cmtError.textContent = "";
+            }
+    
+            // Nếu tất cả đều hợp lệ, chuyển tới trang xác thực danh tính
+            if (isValid) {
+                // Chuyển hướng tới trang xác thực danh tính
+                window.location.href = "capquyenxacthuc.html";
+            }
+        }
+    
+        // Gắn sự kiện vào form
+        document.getElementById("signup-form").addEventListener("submit", validateForm);
+    </script>
+    
